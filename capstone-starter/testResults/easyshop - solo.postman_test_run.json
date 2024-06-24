@@ -1,0 +1,394 @@
+{
+	"id": "b4ba23be-34d1-40e0-bd71-9778bddee9df",
+	"name": "easyshop - solo",
+	"timestamp": "2024-06-24T17:50:28.241Z",
+	"collection_id": "36481115-b8e4ea4d-336e-4088-baa0-fdb20d6f1c95",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 12,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-06-24T17:50:26.368Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "044ef9dd-b5a8-425b-828e-e6b066764c16",
+			"name": "Register",
+			"url": "http://localhost:8080/register",
+			"time": 263,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Registration should succeed": true
+			},
+			"testPassFailCounts": {
+				"Registration should succeed": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				263
+			],
+			"allTests": [
+				{
+					"Registration should succeed": true
+				}
+			]
+		},
+		{
+			"id": "c7819a7d-7278-482d-bf61-185ababc1649",
+			"name": "Login - new user",
+			"url": "http://localhost:8080/login",
+			"time": 139,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"User Login should create token": true
+			},
+			"testPassFailCounts": {
+				"User Login should create token": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				139
+			],
+			"allTests": [
+				{
+					"User Login should create token": true
+				}
+			]
+		},
+		{
+			"id": "ab2dac12-13d5-4bc4-a943-a60aaf2445a5",
+			"name": "Login - as admin",
+			"url": "http://localhost:8080/login",
+			"time": 142,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Admin Login should succeed": true
+			},
+			"testPassFailCounts": {
+				"Admin Login should succeed": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				142
+			],
+			"allTests": [
+				{
+					"Admin Login should succeed": true
+				}
+			]
+		},
+		{
+			"id": "fe541306-11fe-4347-8356-0eb34862884c",
+			"name": "Get Categories",
+			"url": "http://localhost:8080/categories",
+			"time": 27,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Categories should be 3": true
+			},
+			"testPassFailCounts": {
+				"Categories should be 3": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				27
+			],
+			"allTests": [
+				{
+					"Categories should be 3": true
+				}
+			]
+		},
+		{
+			"id": "3cb1cf7c-fa8a-4616-99a9-87972a7de5f7",
+			"name": "Add Category - not admin",
+			"url": "http://localhost:8080/categories",
+			"time": 21,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Category insert as non admin should fail": true
+			},
+			"testPassFailCounts": {
+				"Category insert as non admin should fail": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				21
+			],
+			"allTests": [
+				{
+					"Category insert as non admin should fail": true
+				}
+			]
+		},
+		{
+			"id": "6ee9c01e-1a3b-49b2-86a6-c0d654793d58",
+			"name": "Get Categories",
+			"url": "http://localhost:8080/categories",
+			"time": 9,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Categories should be 3": true
+			},
+			"testPassFailCounts": {
+				"Categories should be 3": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				9
+			],
+			"allTests": [
+				{
+					"Categories should be 3": true
+				}
+			]
+		},
+		{
+			"id": "c57165d8-7fe5-4a3f-9cf8-0f160e54633a",
+			"name": "Add Category - as admin",
+			"url": "http://localhost:8080/categories",
+			"time": 19,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Category insert as admin should succeed": true
+			},
+			"testPassFailCounts": {
+				"Category insert as admin should succeed": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Category insert as admin should succeed": true
+				}
+			]
+		},
+		{
+			"id": "f4413f4d-9ca0-4b4b-91f9-804eed053d32",
+			"name": "Get Categories - after add",
+			"url": "http://localhost:8080/categories",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Categories should be 4": true
+			},
+			"testPassFailCounts": {
+				"Categories should be 4": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Categories should be 4": true
+				}
+			]
+		},
+		{
+			"id": "34d97896-1c50-4d39-a5c3-104f343d9ac1",
+			"name": "Get New Category By Id",
+			"url": "http://localhost:8080/categories/4",
+			"time": 7,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Get new category by id should succeed": true
+			},
+			"testPassFailCounts": {
+				"Get new category by id should succeed": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Get new category by id should succeed": true
+				}
+			]
+		},
+		{
+			"id": "a0c5dc71-a200-4333-ba75-def47eecf159",
+			"name": "Delete Category - as admin",
+			"url": "http://localhost:8080/categories/4",
+			"time": 12,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Delete new category should succeed": true
+			},
+			"testPassFailCounts": {
+				"Delete new category should succeed": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Delete new category should succeed": true
+				}
+			]
+		},
+		{
+			"id": "e0c4b32f-6997-4a2b-8f3d-66acb1935cca",
+			"name": "Get Category By Id - after delete",
+			"url": "http://localhost:8080/categories/4",
+			"time": 10,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Get new category after delete should not be found ": true
+			},
+			"testPassFailCounts": {
+				"Get new category after delete should not be found ": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Get new category after delete should not be found ": true
+				}
+			]
+		},
+		{
+			"id": "e8052eef-c7c3-4456-b0c3-48f371abbcf4",
+			"name": "Search Products",
+			"url": "http://localhost:8080/products?cat=1&minPrice=80&maxPrice=90",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Number of products = 1": true
+			},
+			"testPassFailCounts": {
+				"Number of products = 1": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				12
+			],
+			"allTests": [
+				{
+					"Number of products = 1": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 668,
+	"collection": {
+		"requests": [
+			{
+				"id": "044ef9dd-b5a8-425b-828e-e6b066764c16",
+				"method": "POST"
+			},
+			{
+				"id": "c7819a7d-7278-482d-bf61-185ababc1649",
+				"method": "POST"
+			},
+			{
+				"id": "ab2dac12-13d5-4bc4-a943-a60aaf2445a5",
+				"method": "POST"
+			},
+			{
+				"id": "fe541306-11fe-4347-8356-0eb34862884c",
+				"method": "GET"
+			},
+			{
+				"id": "3cb1cf7c-fa8a-4616-99a9-87972a7de5f7",
+				"method": "POST"
+			},
+			{
+				"id": "6ee9c01e-1a3b-49b2-86a6-c0d654793d58",
+				"method": "GET"
+			},
+			{
+				"id": "c57165d8-7fe5-4a3f-9cf8-0f160e54633a",
+				"method": "POST"
+			},
+			{
+				"id": "f4413f4d-9ca0-4b4b-91f9-804eed053d32",
+				"method": "GET"
+			},
+			{
+				"id": "34d97896-1c50-4d39-a5c3-104f343d9ac1",
+				"method": "GET"
+			},
+			{
+				"id": "a0c5dc71-a200-4333-ba75-def47eecf159",
+				"method": "DELETE"
+			},
+			{
+				"id": "e0c4b32f-6997-4a2b-8f3d-66acb1935cca",
+				"method": "GET"
+			},
+			{
+				"id": "e8052eef-c7c3-4456-b0c3-48f371abbcf4",
+				"method": "GET"
+			}
+		]
+	}
+}

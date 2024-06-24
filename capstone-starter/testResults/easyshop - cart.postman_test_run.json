@@ -1,0 +1,332 @@
+{
+	"id": "b8a4b912-1bc0-4f00-a14c-7938e799e280",
+	"name": "easyshop - cart",
+	"timestamp": "2024-06-24T22:36:26.493Z",
+	"collection_id": "36481115-c5c04b47-7768-4a0c-878d-9ad310fc412f",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 10,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-06-24T22:36:25.580Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "87bfbfd0-4b6d-494f-9ef3-26d922321c6b",
+			"name": "Login",
+			"url": "http://localhost:8080/login",
+			"time": 157,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"User Login should create token": true
+			},
+			"testPassFailCounts": {
+				"User Login should create token": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				157
+			],
+			"allTests": [
+				{
+					"User Login should create token": true
+				}
+			]
+		},
+		{
+			"id": "d17bd827-3b02-489d-ab1a-a967abf5cdd7",
+			"name": "Get Cart while not logged in should not be authorized",
+			"url": "http://localhost:8080/cart",
+			"time": 7,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Get cart logged in should return 401": true
+			},
+			"testPassFailCounts": {
+				"Get cart logged in should return 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Get cart logged in should return 401": true
+				}
+			]
+		},
+		{
+			"id": "11f04101-9d15-4c03-b8f7-226dd7061f8e",
+			"name": "Get Cart of User",
+			"url": "http://localhost:8080/cart",
+			"time": 17,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Get cart logged in should succeed": true
+			},
+			"testPassFailCounts": {
+				"Get cart logged in should succeed": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				17
+			],
+			"allTests": [
+				{
+					"Get cart logged in should succeed": true
+				}
+			]
+		},
+		{
+			"id": "fcff7f48-cb89-4626-852e-1eff36d599e4",
+			"name": "Add Product to Cart - no auth - should fail",
+			"url": "http://localhost:8080/cart/products/12",
+			"time": 7,
+			"responseCode": {
+				"code": 401,
+				"name": "Unauthorized"
+			},
+			"tests": {
+				"Add to cart without login should fail": true
+			},
+			"testPassFailCounts": {
+				"Add to cart without login should fail": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Add to cart without login should fail": true
+				}
+			]
+		},
+		{
+			"id": "fab97640-2477-448d-bedb-62ab7600a7c2",
+			"name": "Add Product to Cart - with auth - should succeed",
+			"url": "http://localhost:8080/cart/products/12",
+			"time": 17,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Add to cart logged in should succeed": true
+			},
+			"testPassFailCounts": {
+				"Add to cart logged in should succeed": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				17
+			],
+			"allTests": [
+				{
+					"Add to cart logged in should succeed": true
+				}
+			]
+		},
+		{
+			"id": "5f592b91-cb03-4ade-8747-900dbf258515",
+			"name": "Add another Product to Cart - with auth",
+			"url": "http://localhost:8080/cart/products/21",
+			"time": 22,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Add additional to cart logged in should succeed": true
+			},
+			"testPassFailCounts": {
+				"Add additional to cart logged in should succeed": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				22
+			],
+			"allTests": [
+				{
+					"Add additional to cart logged in should succeed": true
+				}
+			]
+		},
+		{
+			"id": "51cd1861-f53e-431a-ad9a-0306ae5c4290",
+			"name": "Update Quantity",
+			"url": "http://localhost:8080/cart/products/21",
+			"time": 15,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Update shopping cart item should succeed": true
+			},
+			"testPassFailCounts": {
+				"Update shopping cart item should succeed": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Update shopping cart item should succeed": true
+				}
+			]
+		},
+		{
+			"id": "6f1a23e1-32a3-4ec1-b25d-eb9cc35760eb",
+			"name": "Get Cart",
+			"url": "http://localhost:8080/cart",
+			"time": 16,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Get cart logged in should succeed": true
+			},
+			"testPassFailCounts": {
+				"Get cart logged in should succeed": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				16
+			],
+			"allTests": [
+				{
+					"Get cart logged in should succeed": true
+				}
+			]
+		},
+		{
+			"id": "a064d904-357c-46a4-83b1-cd13c640193f",
+			"name": "Clear Cart",
+			"url": "http://localhost:8080/cart",
+			"time": 10,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Cart should be empty": true
+			},
+			"testPassFailCounts": {
+				"Cart should be empty": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				10
+			],
+			"allTests": [
+				{
+					"Cart should be empty": true
+				}
+			]
+		},
+		{
+			"id": "2c23744e-4adc-4747-9e5f-c5b7b796c3ef",
+			"name": "Get Cart while cart is empty",
+			"url": "http://localhost:8080/cart",
+			"time": 11,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Get cart logged in should succeed": true
+			},
+			"testPassFailCounts": {
+				"Get cart logged in should succeed": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Get cart logged in should succeed": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 279,
+	"collection": {
+		"requests": [
+			{
+				"id": "87bfbfd0-4b6d-494f-9ef3-26d922321c6b",
+				"method": "POST"
+			},
+			{
+				"id": "d17bd827-3b02-489d-ab1a-a967abf5cdd7",
+				"method": "GET"
+			},
+			{
+				"id": "11f04101-9d15-4c03-b8f7-226dd7061f8e",
+				"method": "GET"
+			},
+			{
+				"id": "fcff7f48-cb89-4626-852e-1eff36d599e4",
+				"method": "POST"
+			},
+			{
+				"id": "fab97640-2477-448d-bedb-62ab7600a7c2",
+				"method": "POST"
+			},
+			{
+				"id": "5f592b91-cb03-4ade-8747-900dbf258515",
+				"method": "POST"
+			},
+			{
+				"id": "51cd1861-f53e-431a-ad9a-0306ae5c4290",
+				"method": "PUT"
+			},
+			{
+				"id": "6f1a23e1-32a3-4ec1-b25d-eb9cc35760eb",
+				"method": "GET"
+			},
+			{
+				"id": "a064d904-357c-46a4-83b1-cd13c640193f",
+				"method": "DELETE"
+			},
+			{
+				"id": "2c23744e-4adc-4747-9e5f-c5b7b796c3ef",
+				"method": "GET"
+			}
+		]
+	}
+}
