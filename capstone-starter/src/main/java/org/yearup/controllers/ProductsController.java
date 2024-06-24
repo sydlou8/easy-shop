@@ -63,12 +63,12 @@ public class ProductsController
         }
     }
 
-    @PutMapping("{id}")
+    @PutMapping({"{id}", "{id}/"})
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void updateProduct(@PathVariable int id, @RequestBody Product product) {
         try {
-            productDao.create(product);
+            productDao.update(id, product);
         } catch(Exception ex) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }

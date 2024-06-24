@@ -1,7 +1,6 @@
 package org.yearup.data.mysql;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.yearup.controllers.exceptions.CategoryNotFoundException;
 import org.yearup.data.CategoryDao;
