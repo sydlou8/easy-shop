@@ -10,4 +10,5 @@ public interface ShoppingCartDao
     ShoppingCart add(int userId, int productId);
     void update(int userId, int productId, ShoppingCartItem item);
     void empty(int userId);
+
 }

@@ -21,28 +21,16 @@ import java.security.Principal;
 @CrossOrigin
 @RequestMapping("cart")
 @PreAuthorize("isAuthenticated()")
-public class ShoppingCartController {
+public class ShoppingCartController extends UserBase{
     // a shopping cart requires
     private ShoppingCartDao shoppingCartDao;
-    private UserDao userDao;
     private ProductDao productDao;
 
     @Autowired
     public ShoppingCartController(ShoppingCartDao shoppingCartDao, UserDao userDao, ProductDao productDao) {
+        super(userDao);
         this.shoppingCartDao = shoppingCartDao;
-        this.userDao = userDao;
         this.productDao = productDao;
-    }
-
-    private User getUser (Principal principal) {
-        // get the currently logged in username
-        String userName = principal.getName();
-        // find database user by userId
-        return userDao.getByUserName(userName);
-    }
-
-    private int getUserId(User user) {
-        return user.getId();
     }
 
     // each method in this controller requires a Principal object as a parameter
@@ -96,4 +84,10 @@ public class ShoppingCartController {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Error Detected");
         }
     }
+
+//    @GetMapping({"products", "products/"})
+//    public void getProducts(Principal principal) {
+//        int userId = getUserId(getUser(principal));
+//        productDao.getById(userId);
+//    }
 }

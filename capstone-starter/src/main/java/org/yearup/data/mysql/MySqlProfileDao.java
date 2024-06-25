@@ -1,6 +1,8 @@
 package org.yearup.data.mysql;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
+import org.springframework.web.server.ResponseStatusException;
 import org.yearup.models.Profile;
 import org.yearup.data.ProfileDao;
 
@@ -16,13 +18,11 @@ public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao
     }
 
     @Override
-    public Profile create(Profile profile)
-    {
+    public Profile create(Profile profile) {
         String sql = "INSERT INTO profiles (user_id, first_name, last_name, phone, email, address, city, state, zip) " +
                 " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-        try(Connection connection = getConnection())
-        {
+        try(Connection connection = getConnection()) {
             PreparedStatement ps = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
             ps.setInt(1, profile.getUserId());
             ps.setString(2, profile.getFirstName());
@@ -37,11 +37,34 @@ public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao
             ps.executeUpdate();
 
             return profile;
-        }
-        catch (SQLException e)
-        {
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public Profile getProfile(int id) {
+        try (Connection con = getConnection()) {
+            String sql = "SELECT * FROM profiles WHERE user_id = ?;";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setInt(1, id);
+
+            ResultSet row = statement.executeQuery();
+            if (row.next()) {
+                String first = row.getString("first_name");
+                String last = row.getString("last_name");
+                String phone = row.getString("phone");
+                String email = row.getString("email");
+                String address = row.getString("address");
+                String city = row.getString("city");
+                String state = row.getString("state");
+                String zip = row.getString("zip");
+                return new Profile (id, first, last, phone, email, address, city, state, zip);
+            } else throw new ResponseStatusException(HttpStatus.NO_CONTENT, "No Profile found");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }
