@@ -85,9 +85,4 @@ public class ShoppingCartController extends UserBase{
         }
     }
 
-//    @GetMapping({"products", "products/"})
-//    public void getProducts(Principal principal) {
-//        int userId = getUserId(getUser(principal));
-//        productDao.getById(userId);
-//    }
 }

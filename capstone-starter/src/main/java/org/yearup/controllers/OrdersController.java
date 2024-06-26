@@ -10,7 +10,6 @@ import org.yearup.data.ProfileDao;
 import org.yearup.data.ShoppingCartDao;
 import org.yearup.data.UserDao;
 import org.yearup.models.Order;
-import org.yearup.models.OrderLineItem;
 import org.yearup.models.Profile;
 import org.yearup.models.ShoppingCart;
 

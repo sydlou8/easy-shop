@@ -1,6 +1,5 @@
 package org.yearup.data.mysql;
 
-import org.apache.ibatis.jdbc.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.yearup.controllers.exceptions.ProductNotFoundException;
