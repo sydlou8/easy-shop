@@ -1,18 +1,16 @@
 package org.yearup.data;
 
-import org.yearup.models.Order;
-import org.yearup.models.OrderLineItem;
-import org.yearup.models.Profile;
-import org.yearup.models.ShoppingCart;
+import org.yearup.models.*;
 
 import java.util.List;
 import java.util.Map;
 
 public interface OrdersDao {
-    void add(ShoppingCart cart, Profile profile);
+    Order add(ShoppingCart cart, Profile profile);
+    Order setOrderByOrderId(Profile profile);
     Order getOrderById(int id);
-
+    //Order getOrderByUserId(Profile profile);
+    OrderLineItem setLineItem(ShoppingCartItem item, Order order);
     OrderLineItem getOrderLineItemById(int id);
 
-    Map<Order, List<OrderLineItem>> getOrders();
 }

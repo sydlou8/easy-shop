@@ -10,6 +10,7 @@ import org.yearup.data.ProfileDao;
 import org.yearup.data.ShoppingCartDao;
 import org.yearup.data.UserDao;
 import org.yearup.models.Order;
+import org.yearup.models.OrderLineItem;
 import org.yearup.models.Profile;
 import org.yearup.models.ShoppingCart;
 
@@ -29,23 +30,25 @@ public class OrdersController extends UserBase {
     private List<ShoppingCart> orders = new ArrayList<>();
 
     @Autowired
-    public OrdersController(ShoppingCartDao shoppingCartDao, UserDao userDao, ProfileDao profileDao) {
+    public OrdersController(ShoppingCartDao shoppingCartDao, UserDao userDao, ProfileDao profileDao, OrdersDao ordersDao) {
         super(userDao);
         this.shoppingCartDao = shoppingCartDao;
         this.profileDao = profileDao;
+        this.ordersDao = ordersDao;
     }
 
-    @PutMapping({"", "/"})
+    @PostMapping({"", "/"})
     @ResponseStatus(HttpStatus.CREATED)
-    public void checkout(Principal principal) {
+    public Order checkout(Principal principal) {
         try {
             int userId = getUserId(getUser(principal));
             ShoppingCart cart = shoppingCartDao.getByUserId(userId);
             Profile profile = profileDao.getProfile(userId);
             // add cart to orders
-            ordersDao.add(cart, profile);
+            Order order = ordersDao.add(cart, profile);
             // clear current cart
             shoppingCartDao.empty(userId);
+            return order;
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized action");
         }
