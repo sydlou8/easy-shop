@@ -42,11 +42,11 @@ public class OrdersController extends UserBase {
         try {
             int userId = getUserId(getUser(principal));
             ShoppingCart cart = shoppingCartDao.getByUserId(userId);
-            Profile profile = profileDao.getProfile(userId);
+            Profile profile = profileDao.getByUserId(userId);
             // add cart to orders
             Order order = ordersDao.add(cart, profile);
             // clear current cart
-            shoppingCartDao.empty(userId);
+            shoppingCartDao.emptyCart(userId);
             return order;
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized action");

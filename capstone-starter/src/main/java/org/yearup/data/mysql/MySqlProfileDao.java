@@ -36,14 +36,14 @@ public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao
 
             ps.executeUpdate();
 
-            return profile;
+            return getByUserId(profile.getUserId());
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
     @Override
-    public Profile getProfile(int id) {
+    public Profile getByUserId(int id) {
         try (Connection con = getConnection()) {
             String sql = "SELECT * FROM profiles WHERE user_id = ?;";
             PreparedStatement statement = con.prepareStatement(sql);
@@ -51,6 +51,7 @@ public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao
 
             ResultSet row = statement.executeQuery();
             if (row.next()) {
+                int userId = row.getInt("user_id");
                 String first = row.getString("first_name");
                 String last = row.getString("last_name");
                 String phone = row.getString("phone");
@@ -59,7 +60,7 @@ public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao
                 String city = row.getString("city");
                 String state = row.getString("state");
                 String zip = row.getString("zip");
-                return new Profile (id, first, last, phone, email, address, city, state, zip);
+                return new Profile (userId, first, last, phone, email, address, city, state, zip);
             } else throw new ResponseStatusException(HttpStatus.NO_CONTENT, "No Profile found");
         } catch (SQLException e) {
             e.printStackTrace();

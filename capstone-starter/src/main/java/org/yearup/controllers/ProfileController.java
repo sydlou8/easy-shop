@@ -11,6 +11,7 @@ import org.yearup.models.Profile;
 import java.security.Principal;
 
 @RestController
+@CrossOrigin
 @RequestMapping("profile")
 @PreAuthorize("isAuthenticated()")
 public class ProfileController extends UserBase{
@@ -23,7 +24,7 @@ public class ProfileController extends UserBase{
     }
     @GetMapping({"", "/"})
     Profile getProfile(Principal principal) {
-        return profileDao.getProfile(getUserId(getUser(principal)));
+        return profileDao.getByUserId(getUserId(getUser(principal)));
     }
     @PostMapping({"", "/"})
     @ResponseStatus(HttpStatus.CREATED)
